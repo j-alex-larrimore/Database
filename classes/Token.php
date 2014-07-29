@@ -6,8 +6,8 @@ class Token{
         
         public static function check($token){
             $tokenName = Config::get('session/token_name');
-            
-            if(Session::exists($tokenName) && strcmp($token, Session::get($tokenName))){
+                    
+            if(Session::exists($tokenName) && strcmp($token, Session::get($tokenName)) === 0){
                 Session::delete($tokenName);
                 return true;
             }
