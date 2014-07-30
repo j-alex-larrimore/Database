@@ -36,7 +36,7 @@ class User {
             $id = $this->data()->id;
         }
         
-        if(!$this->_db_>update('users', $id, $fields)){
+        if(!$this->_db->update('users', $id, $fields)){
             throw new Exception('Problem updating account');
         }
     }
