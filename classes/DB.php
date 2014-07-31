@@ -28,6 +28,7 @@ class DB{
             $x = 1;
             if(count($params)){
                 foreach($params as $param){
+                    echo $param . " query " . $x; 
                     $this->_query->bindValue($x, $param);
                     $x++;
                 }
@@ -98,17 +99,20 @@ class DB{
         $x = 1;
         
         foreach($fields as $name => $value){
-            $set .= "{name} = ?";
-            if($x < count($fields)){
-                $set .= ',';
-            }
-            $x++;
+           // echo $id . " " . $name . " " . $value;
+            $set = "name='" . $value ."'";
+//            if($x < count($fields)){
+//                $set .= ',';
+//            }
+//            $x++;
         }
         
-        $sql = "UPDATE {$table} SET {$set} WHERE id = {$id}";
+        echo $sql = "UPDATE {$table} SET {$set} WHERE id={$id}";
         
         if(!$this ->query($sql, $fields)->error()){
+        
             return true;
+            
         }
         
         return false;

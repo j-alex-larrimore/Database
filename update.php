@@ -26,8 +26,8 @@ if(Input::exists()){
                     'name' => Input::get('name')
                 ));
                 
-                Session::flash('home', 'Details updated successfully');
-                Redirect::to('index.php');
+//                Session::flash('home', 'Details updated successfully');
+//                Redirect::to('index.php');
             }
             catch(Exception $e){
                 die($e->getMessage());
